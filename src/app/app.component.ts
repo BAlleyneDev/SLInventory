@@ -18,7 +18,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     
    firebase.initializeApp({
-     apiKey: "AIzaSyCsyqYTMokyxdq6yWSmV0oFemHwONqMo_U",
+     apiKey: "API_KEY",
      authDomain: "slinventory-fbd18.firebaseapp.com"
    });
    firebase.auth().onAuthStateChanged(user=>{

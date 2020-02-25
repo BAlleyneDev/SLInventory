@@ -1,0 +1,50 @@
+<!--//Written by Brandon Alleyne - on my way up-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{mode}} Item</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+        <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input
+          type="text"
+          formControlName="name"
+         ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Amount</ion-label>
+        <ion-input  type="number" formControlName="amount">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Threshold</ion-label>
+        <ion-input  type="number" formControlName="threshold">
+        </ion-input>
+      </ion-item>
+
+       <ion-item>
+        <ion-label floating>Location</ion-label>
+        <ion-textarea formControlName="location"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Notes</ion-label>
+        <ion-textarea formControlName="notes"></ion-textarea>
+      </ion-item>
+    </ion-list>
+ 
+      <button
+      type="submit"
+      ion-button
+      block
+      [disabled]="!itemForm.valid">{{mode}} Item</button>
+  </form>
+</ion-content>

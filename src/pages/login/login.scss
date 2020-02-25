@@ -1,0 +1,104 @@
+page-login {
+   // Main Colors
+$accent: null;
+$white: #ffffff;
+$black: #000000;
+$dark-gray: lighten($black, 20%);
+$gray: lighten($black, 40%);
+$light-gray: lighten($black, 60%);
+$lighter-gray: lighten($black, 80%);
+
+// Pen Settings
+$primary: #447fab;
+$accent: #ed2553;
+$max-width: 80%;
+
+// Mixins
+$level: 1;
+
+@mixin materialShadow($level) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+
+  @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+}
+
+
+
+/* Container */
+.container {
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  	position: relative;
+  	width: 100%;
+	height: 100%;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: $white;
+  max-width: $max-width;
+  width: 100%;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  box-sizing: border-box;
+  @include materialShadow(1);
+  transition: .3s ease;
+  .title {
+    position: relative;
+    z-index: 1;
+    border-left: 5px solid $primary;
+    margin: 0 0 35px;
+    padding: 10px 0 10px 50px;
+    color: $primary;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  form{
+	display: flex;
+	padding: 20px;
+	flex-flow: column;
+  }
+  	input{
+		margin:5px 0 5px 0;
+		padding: 10px;
+		border:1px solid #eee;
+		border-radius: 4px;
+	}
+	button{
+		color: $white;
+	}
+	ion-icon{
+		width: 25px;
+		height: 25px;
+		float: left;
+	}
+}
+
+/* Keyframes */
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+}

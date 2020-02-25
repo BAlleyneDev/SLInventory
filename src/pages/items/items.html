@@ -1,0 +1,78 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title (click)="adminaccess()">Inventory</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+
+       <button ion-button icon-only (click)="refresh()">
+        <ion-icon name="refresh-circle"></ion-icon>
+      </button>
+
+      
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="Search by Name"></ion-searchbar>
+     <ion-searchbar (ionInput)="getLocation($event)" placeholder="Search by Location"></ion-searchbar>
+    <ion-list  reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-item-sliding *ngFor="let item of items; let i = index">
+          <button ion-item
+          (click)="onLoadItem(item, i)"
+          >
+          <h2>{{ item.name }}</h2>
+          <ion-note>{{ item.amount }}</ion-note>
+           <ion-badge *ngIf="item.limit" color="danger" item-end>!</ion-badge>
+         </button>
+
+
+         <ion-item-options>
+           <button large ion-button (click)="addtoAmount(i, item.name, item.amount, item.location, item.threshold, item.limit,item)" color="light">
+             <ion-icon name="add"></ion-icon>
+           </button>
+           <button large ion-button (click)="subAmount(i, item.name, item.amount, item.location, item.threshold, item.limit,item)" color="danger">
+             <ion-icon name="remove"></ion-icon>
+           </button>
+         </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+
+           <button block ion-button (click)="onGenerateFullReport()" color="light">
+             Email Report
+           </button>
+
+            <button block ion-button (click)="onLoadChart()" color="light">
+             Load Chart
+           </button>
+    
+
+   <ion-fab right bottom *ngIf="!registeredDevice">
+    <button ion-fab color="secondary"><ion-icon name="arrow-dropleft"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button (click)="registerDevice()" ion-fab ><ion-icon name="clipboard"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+<!--
+  <ion-list reorder="true" (ionItemReorder)="reorderItems($event)">
+    <ion-item *ngFor="let item of items">{{ item }}</ion-item>
+    <button ion-item>
+      <h2>Adapters</h2>
+      <ion-note>Amount = 5</ion-note>
+    </button>
+  </ion-list>
+-->
+
+
+<chart [options]="chartOptions" type="chart" id="chartC"></chart>
+
+
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar hideBackButton color="primary">
+		
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+	<div class="container">
+		<div class="card">
+			<h1 class="title">Login</h1>
+			<form #f="ngForm" (ngSubmit)="onSignin(f)">
+                <input  required type="text" ngModel name="email" id="email" placeholder="E-mail"> <br>
+                <input  required type="password" ngModel name="password" id="password" placeholder="Password"><br>
+				<button ion-button type="submit" [disabled]="!f.valid" id="loginBtn">Login</button>
+			</form>
+		</div>
+	</div>
+</ion-content>

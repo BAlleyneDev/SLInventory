@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title >Administrator</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="loadReports()">
+        <ion-icon name="document"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list  reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-item-sliding *ngFor="let item of items; let i = index">
+          <button ion-item
+          (click)="onLoadItem(item, i,'Edit')"
+          >
+          <h2>{{ item.name }}</h2>
+          <ion-note>{{ item.amount }}</ion-note>
+         </button>
+
+         <ion-item-options>
+           <button large ion-button (click)=" onDeleteItem(i)" color="danger">
+             <ion-icon name="trash"></ion-icon>
+           </button>
+         </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+
+</ion-content>

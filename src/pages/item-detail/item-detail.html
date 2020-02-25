@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>{{item.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding center>
+   <ion-grid>
+       <ion-row>
+         <ion-col text-center>
+           <h2>{{item.name}}</h2>
+           <div class="subtitle">Amount: {{item.amount}}</div>
+           <div class="subtitle">Threshold: {{item.threshold}}</div>
+         </ion-col>
+       </ion-row>
+
+       <ion-row>
+         <ion-col text-center>
+           <h4>Location: {{item.location}}</h4>
+            <h5>Notes: {{item.notes}}</h5>
+         </ion-col>
+       </ion-row>
+
+
+       <ion-row>
+         <ion-col>
+           <button ion-button outline block (click)="onEditItem()">Edit Item</button>
+         </ion-col>
+          <ion-col *ngIf="mode=='Edit'">
+           <button ion-button outline block color="danger" (click)="onDeleteItem()">Delete Item</button>
+         </ion-col>
+       </ion-row>
+     </ion-grid>
+</ion-content>

@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title (click)="returnToHome()">Report</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+     <ion-list>
+             <ion-item text-wrap *ngFor="let report of reports; let i = index " (click)="removeReport(i)">
+                <h2>{{report.yourName}}{{report.message}}{{report.name}} on </h2>
+                <p>{{report.date}}</p>
+                <p>{{report.comment}}</p>
+            </ion-item>
+
+
+      
+    </ion-list>
+
+    <button block ion-button (click)="onGenerateFullReport()" color="light">
+             Email Report
+           </button>
+
+     <button block ion-button (click)="clearReports()" color="light">
+             Clear All Reports
+           </button>
+
+
+</ion-content>
